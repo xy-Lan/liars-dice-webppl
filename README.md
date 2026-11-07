@@ -2,6 +2,53 @@
 
 A runnable, single-bid inference pilot for a WebPPL final project. It contains **8 matched pairs (16 tasks)**, a generative dice simulator, an independent exact binomial oracle, prompt builder, Python boto3 Converse client, local WebPPL executor, scoring, and JSONL logs. Python 3.10+ and Node.js 18+ are required for full execution. Python 3.11 is recommended and has been verified locally; it avoids the pip bootstrap failure observed with the local Python 3.15 installation. Python's standard library alone runs the dry-run and offline unit tests.
 
+## Current run status (2026-11-07)
+
+The end-to-end pipeline has been exercised successfully: **natural-language task → Bedrock-generated WebPPL → local execution → independent oracle comparison → JSONL evaluation logs**.
+
+| Check | Current result |
+|---|---|
+| Local automated tests | 13/13 passed on Python 3.11.3, including the WebPPL integration test |
+| Hand-written reference WebPPL programs | 16/16 agree with the independent exact binomial oracle |
+| API-free dry-run | All 16 prompts, reference programs, and oracle records generated successfully |
+| Claude Haiku 4.5 Bedrock smoke test | First nonadversarial task passed |
+| Claude Haiku 4.5 full pilot | All 16 programs executed; 15/16 passed the numeric check |
+| Claude Sonnet 4.6 | Client configured; live execution has not yet been verified |
+
+### Haiku 4.5: first full pilot
+
+This is one run of the 8 matched pairs, using the original prompt, temperature `0.5`, `maxTokens=6400`, and no explicitly enabled thinking mode or repair loop. Numeric pass tolerance is `1e-6`.
+
+| Condition | Execution success | Numeric passes | Numeric pass rate | Mean posterior TVD | Mean decision regret |
+|---|---:|---:|---:|---:|---:|
+| Nonadversarial | 8/8 | 8/8 | 100% | 9.58e-17 (floating-point error) | 0 |
+| Adversarial | 8/8 | 7/8 | 87.5% | 0.0364786 | 0 |
+| Overall | 16/16 | 15/16 | 93.75% | 0.0182393 | 0 |
+
+The adversarial policy remained `P(bid | claim true)=1` and `P(bid | claim false)=0.3`; the nonadversarial bid remained independent of the dice.
+
+### Diagnosed failure: `P02_adversarial`
+
+With observer dice `[1,2]`, three hidden dice, and a claim of at least one six, the oracle posterior is `182/257 = 0.708171206225681`. The generated program executed successfully but returned `1.0`, so its status is `numeric_mismatch`.
+
+The model correctly generated the bid likelihood `claim ? 1.0 : 0.3`, but used a native JavaScript array callback:
+
+```javascript
+allDice.some(function(d) { return d === 6; })
+```
+
+This use of a WebPPL function as a callback to a native JavaScript method is unsupported; see the [WebPPL language restrictions](https://docs.webppl.org/en/master/language.html#calling-javascript-functions). Replacing only this expression in a local diagnostic with WebPPL's built-in equivalent:
+
+```javascript
+any(function(d) { return d === 6; }, allDice)
+```
+
+produced `0.7081712062256811`, matching the oracle. The error is classified as a **target-language compatibility error causing an incorrect probability**. The diagnostic repair is not counted as a baseline success: the original full-pilot result remains **15/16**.
+
+Both `1.0` and the oracle posterior exceed the `0.5` accept threshold, so the failed probability estimate still selects the optimal action and has zero decision regret. Probability fidelity and decision quality therefore need separate reporting.
+
+These results establish feasibility of the pipeline. A single run on 16 small tasks, including boundary cases, does not establish a reliable performance difference between conditions. Next steps are to run Sonnet with the same prompt, repeat model runs, and expand the task set. Any prompt change or repair experiment should be reported separately from this baseline. Full live-run logs remain local under the Git-ignored `runs/` directory; checked-in `examples/` logs are API-free reference and dry-run outputs.
+
 ## Quick start: no API calls
 
 ```bash
@@ -109,7 +156,7 @@ python run.py --mode bedrock --model claude-sonnet --out runs/sonnet
 
 Each full model run makes 16 requests with no application-level retries or repairs. The SDK is configured for one attempt. Two full model runs make 32 requests, in addition to the smoke request. Model access, credentials, quotas, and inference-profile permissions must work in your AWS account. Cross-region inference may require access to destination-region resources. `--api-timeout 120` sets the SDK read timeout (not a strict total wall-clock deadline); `--timeout 30` bounds each WebPPL subprocess. A missing WebPPL binary is detected before any model requests.
 
-**Bedrock was subsequently tested with Claude Haiku 4.5:** the first full run executed all 16 programs and passed 15/16 numeric checks (nonadversarial 8/8, adversarial 7/8). The P02 adversarial program used native JavaScript `.some(callback)` instead of WebPPL `any(...)`, yielding 1.0 rather than the oracle posterior 0.7081712062. Replacing that expression locally recovered the oracle result; the original experiment remains scored as a failure. The likelihood policy was correctly generated. All decisions in that run had zero regret, illustrating why probability fidelity and decision quality are separate metrics. This is one pilot run, not a statistically established condition effect. Sonnet execution has not been verified. Mocked Converse contract tests alone cannot establish account access or real model behavior. The project logs failures per case and returns a nonzero process status on failed execution or numeric mismatch. Failures are not silently scored as correct.
+For the completed Haiku pilot and diagnosed failure, see [Current run status](#current-run-status-2026-11-07). Mocked Converse contract tests alone cannot establish account access or real model behavior. The project logs failures per case and returns a nonzero process status on failed execution or numeric mismatch. Failures are not silently scored as correct.
 
 ## Outputs and evaluation
 
