@@ -1,0 +1,16 @@
+{"id": "P01_nonadversarial", "pair_id": "P01", "label": "base", "own_dice": [2, 6], "hidden_dice": 3, "face": 6, "quantity": 3, "condition": "nonadversarial", "bid_observed": true}
+{"id": "P01_adversarial", "pair_id": "P01", "label": "base", "own_dice": [2, 6], "hidden_dice": 3, "face": 6, "quantity": 3, "condition": "adversarial", "bid_observed": true}
+{"id": "P02_nonadversarial", "pair_id": "P02", "label": "decision-reversal", "own_dice": [1, 2], "hidden_dice": 3, "face": 6, "quantity": 1, "condition": "nonadversarial", "bid_observed": true}
+{"id": "P02_adversarial", "pair_id": "P02", "label": "decision-reversal", "own_dice": [1, 2], "hidden_dice": 3, "face": 6, "quantity": 1, "condition": "adversarial", "bid_observed": true}
+{"id": "P03_nonadversarial", "pair_id": "P03", "label": "known-matches", "own_dice": [6, 6], "hidden_dice": 2, "face": 6, "quantity": 3, "condition": "nonadversarial", "bid_observed": true}
+{"id": "P03_adversarial", "pair_id": "P03", "label": "known-matches", "own_dice": [6, 6], "hidden_dice": 2, "face": 6, "quantity": 3, "condition": "adversarial", "bid_observed": true}
+{"id": "P04_nonadversarial", "pair_id": "P04", "label": "four-hidden", "own_dice": [2, 4], "hidden_dice": 4, "face": 2, "quantity": 3, "condition": "nonadversarial", "bid_observed": true}
+{"id": "P04_adversarial", "pair_id": "P04", "label": "four-hidden", "own_dice": [2, 4], "hidden_dice": 4, "face": 2, "quantity": 3, "condition": "adversarial", "bid_observed": true}
+{"id": "P05_nonadversarial", "pair_id": "P05", "label": "ones-not-wild", "own_dice": [1, 3], "hidden_dice": 3, "face": 1, "quantity": 2, "condition": "nonadversarial", "bid_observed": true}
+{"id": "P05_adversarial", "pair_id": "P05", "label": "ones-not-wild", "own_dice": [1, 3], "hidden_dice": 3, "face": 1, "quantity": 2, "condition": "adversarial", "bid_observed": true}
+{"id": "P06_nonadversarial", "pair_id": "P06", "label": "no-known-match", "own_dice": [4, 5], "hidden_dice": 2, "face": 3, "quantity": 2, "condition": "nonadversarial", "bid_observed": true}
+{"id": "P06_adversarial", "pair_id": "P06", "label": "no-known-match", "own_dice": [4, 5], "hidden_dice": 2, "face": 3, "quantity": 2, "condition": "adversarial", "bid_observed": true}
+{"id": "P07_nonadversarial", "pair_id": "P07", "label": "certain-true", "own_dice": [6, 6], "hidden_dice": 2, "face": 6, "quantity": 2, "condition": "nonadversarial", "bid_observed": true}
+{"id": "P07_adversarial", "pair_id": "P07", "label": "certain-true", "own_dice": [6, 6], "hidden_dice": 2, "face": 6, "quantity": 2, "condition": "adversarial", "bid_observed": true}
+{"id": "P08_nonadversarial", "pair_id": "P08", "label": "impossible", "own_dice": [1, 2], "hidden_dice": 2, "face": 6, "quantity": 5, "condition": "nonadversarial", "bid_observed": true}
+{"id": "P08_adversarial", "pair_id": "P08", "label": "impossible", "own_dice": [1, 2], "hidden_dice": 2, "face": 6, "quantity": 5, "condition": "adversarial", "bid_observed": true}

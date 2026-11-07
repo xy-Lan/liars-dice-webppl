@@ -1,0 +1,8 @@
+var dist = Infer({method: 'enumerate', model: function() {
+  var dice = repeat(3, function() { return uniformDraw([1,2,3,4,5,6]); });
+  var matches = filter(function(d) { return d === 6; }, dice).length;
+  var truth = matches + 1 >= 3;
+  observe(Bernoulli({p: (truth ? 1 : 0.3)}), true);
+  return truth;
+}});
+console.log('RESULT_JSON:' + JSON.stringify({probability: Math.exp(dist.score(true))}));

@@ -1,0 +1,21 @@
+{
+  "mode": "reference",
+  "tasks": 16,
+  "groups": {
+    "nonadversarial": {
+      "tasks": 8,
+      "executed": 8,
+      "passes": 8,
+      "mean_tvd": 9.584347204771859e-17,
+      "mean_regret": 0.0
+    },
+    "adversarial": {
+      "tasks": 8,
+      "executed": 8,
+      "passes": 8,
+      "mean_tvd": 7.45931094670027e-17,
+      "mean_regret": 0.0
+    }
+  },
+  "note": "Reference mode validates hand-written programs; Bedrock mode evaluates model-generated programs."
+}

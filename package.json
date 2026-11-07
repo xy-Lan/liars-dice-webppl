@@ -1,0 +1,9 @@
+{
+  "name": "liars-dice-webppl",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Minimal paired single-bid WebPPL inference pilot",
+  "dependencies": {
+    "webppl": "0.9.15"
+  }
+}

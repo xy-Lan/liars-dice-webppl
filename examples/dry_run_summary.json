@@ -1,0 +1,21 @@
+{
+  "mode": "dry-run",
+  "tasks": 16,
+  "groups": {
+    "nonadversarial": {
+      "tasks": 8,
+      "executed": 0,
+      "passes": 0,
+      "mean_tvd": null,
+      "mean_regret": null
+    },
+    "adversarial": {
+      "tasks": 8,
+      "executed": 0,
+      "passes": 0,
+      "mean_tvd": null,
+      "mean_regret": null
+    }
+  },
+  "note": "Dry-run emits prompts/reference code and oracle only; no model or WebPPL execution."
+}

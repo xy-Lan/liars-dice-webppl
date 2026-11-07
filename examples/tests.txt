@@ -1,0 +1,18 @@
+test_base_regression (test_prototype.OfflineTests.test_base_regression) ... ok
+test_boundaries_and_independence (test_prototype.OfflineTests.test_boundaries_and_independence) ... ok
+test_converse_contract_without_network (test_prototype.OfflineTests.test_converse_contract_without_network) ... ok
+test_converse_truncation_and_empty (test_prototype.OfflineTests.test_converse_truncation_and_empty) ... ok
+test_dry_run_cli_without_api_or_webppl (test_prototype.OfflineTests.test_dry_run_cli_without_api_or_webppl) ... ok
+test_eight_matched_pairs (test_prototype.OfflineTests.test_eight_matched_pairs) ... ok
+test_executor_errors_and_timeout (test_prototype.OfflineTests.test_executor_errors_and_timeout) ... ok
+test_oracle_against_bruteforce_dice (test_prototype.OfflineTests.test_oracle_against_bruteforce_dice) ... ok
+test_prompt_policy_no_answers (test_prototype.OfflineTests.test_prompt_policy_no_answers) ... ok
+test_result_parser_and_extractor (test_prototype.OfflineTests.test_result_parser_and_extractor) ... ok
+test_scoring_and_reversal (test_prototype.OfflineTests.test_scoring_and_reversal) ... ok
+test_simulator_policy (test_prototype.OfflineTests.test_simulator_policy) ... ok
+test_all_reference_programs_against_oracle (test_prototype.WebPPLTests.test_all_reference_programs_against_oracle) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 6.479s
+
+OK

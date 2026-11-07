@@ -1,0 +1,16 @@
+{"id": "P01_nonadversarial", "prior": 0.07407407407407407, "posterior": 0.07407407407407407, "prior_exact": "2/27", "posterior_exact": "2/27", "bid_probability": 0.5}
+{"id": "P01_adversarial", "prior": 0.07407407407407407, "posterior": 0.21052631578947367, "prior_exact": "2/27", "posterior_exact": "4/19", "bid_probability": 0.35185185185185186}
+{"id": "P02_nonadversarial", "prior": 0.4212962962962963, "posterior": 0.4212962962962963, "prior_exact": "91/216", "posterior_exact": "91/216", "bid_probability": 0.5}
+{"id": "P02_adversarial", "prior": 0.4212962962962963, "posterior": 0.708171206225681, "prior_exact": "91/216", "posterior_exact": "182/257", "bid_probability": 0.5949074074074074}
+{"id": "P03_nonadversarial", "prior": 0.3055555555555556, "posterior": 0.3055555555555556, "prior_exact": "11/36", "posterior_exact": "11/36", "bid_probability": 0.5}
+{"id": "P03_adversarial", "prior": 0.3055555555555556, "posterior": 0.5945945945945946, "prior_exact": "11/36", "posterior_exact": "22/37", "bid_probability": 0.5138888888888888}
+{"id": "P04_nonadversarial", "prior": 0.13194444444444445, "posterior": 0.13194444444444445, "prior_exact": "19/144", "posterior_exact": "19/144", "bid_probability": 0.5}
+{"id": "P04_adversarial", "prior": 0.13194444444444445, "posterior": 0.336283185840708, "prior_exact": "19/144", "posterior_exact": "38/113", "bid_probability": 0.3923611111111111}
+{"id": "P05_nonadversarial", "prior": 0.4212962962962963, "posterior": 0.4212962962962963, "prior_exact": "91/216", "posterior_exact": "91/216", "bid_probability": 0.5}
+{"id": "P05_adversarial", "prior": 0.4212962962962963, "posterior": 0.708171206225681, "prior_exact": "91/216", "posterior_exact": "182/257", "bid_probability": 0.5949074074074074}
+{"id": "P06_nonadversarial", "prior": 0.027777777777777776, "posterior": 0.027777777777777776, "prior_exact": "1/36", "posterior_exact": "1/36", "bid_probability": 0.5}
+{"id": "P06_adversarial", "prior": 0.027777777777777776, "posterior": 0.08695652173913043, "prior_exact": "1/36", "posterior_exact": "2/23", "bid_probability": 0.3194444444444444}
+{"id": "P07_nonadversarial", "prior": 1.0, "posterior": 1.0, "prior_exact": "1", "posterior_exact": "1", "bid_probability": 0.5}
+{"id": "P07_adversarial", "prior": 1.0, "posterior": 1.0, "prior_exact": "1", "posterior_exact": "1", "bid_probability": 1.0}
+{"id": "P08_nonadversarial", "prior": 0.0, "posterior": 0.0, "prior_exact": "0", "posterior_exact": "0", "bid_probability": 0.5}
+{"id": "P08_adversarial", "prior": 0.0, "posterior": 0.0, "prior_exact": "0", "posterior_exact": "0", "bid_probability": 0.3}
